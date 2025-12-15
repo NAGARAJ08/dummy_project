@@ -3,7 +3,36 @@ import json
 from datetime import datetime
 from flask import Flask, request, jsonify
 import uuid
+import requests
 from models import Trade
+
+# Initialize Flask app
+app = Flask(__name__)
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('../logs/trade_service.log'),
+        logging.StreamHandler()
+    ]
+)
+
+# In-memory storage for trades
+trades = {}
+
+def create_trade_object(trade_id, symbol, quantity, price, trade_type):
+    """Helper function to create a Trade object"""
+    timestamp = datetime.now().isoformat()
+    return Trade(
+        trade_id=trade_id,
+        symbol=symbol,
+        quantity=quantity,
+        price=price,
+        trade_type=trade_type,
+        timestamp=timestamp
+    )
 
 @app.route('/health', methods=['GET'])
 def health():

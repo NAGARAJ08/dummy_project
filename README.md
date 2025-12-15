@@ -8,24 +8,6 @@ This project simulates a **production-grade bank trading system** consisting of 
 - **Field Lineage Tracking**: Understanding how data fields are derived and transformed
 - **Workflow Analysis**: Mapping the complete flow of requests across services
 
-### Problem Statement
-
-In real-world microservices architectures, production support teams face challenges:
-- **Fragmented Data**: Logs (Splunk), code (Git), and traces are in separate systems
-- **Complex Investigations**: Understanding multi-service failures requires correlating logs, code, and data flow
-- **High MTTD/MTTR**: Mean Time To Detect and Resolve issues is elevated due to manual investigation
-
-### Solution Approach
-
-This project provides the foundational data (code + logs) for building a **GenAI-powered observability platform** with 6 layers:
-
-1. **Code Analysis Layer**: Parse Python code using AST to extract functions, classes, dependencies
-2. **Data Persistence Layer**: Build a Knowledge Graph (SQL/Graph DB) with code entities
-3. **Splunk Logs Ingestion Layer**: Ingest logs and map events to functions via trace IDs
-4. **Enrichment Layer**: Use LLMs to summarize code purpose; generate embeddings for similarity search
-5. **Agent & Tools Layer**: Build RAG-based agents with intent detection and custom tools
-6. **UI Bot Layer**: Multi-turn conversational interface with chain-of-thought reasoning
-
 ---
 
 ## 🏗️ Architecture & Services
