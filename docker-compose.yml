@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  trade_service:
+    build: ./services/trade_service
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+    volumes:
+      - ./services/trade_service/logs:/app/logs
+
+  pricing_service:
+    build: ./services/pricing_service
+    ports:
+      - "5001:5001"
+    environment:
+      - FLASK_ENV=development
+    volumes:
+      - ./services/pricing_service/logs:/app/logs
+    depends_on:
+      - trade_service
+
+  pnl_service:
+    build: ./services/pnl_service
+    ports:
+      - "5002:5002"
+    environment:
+      - FLASK_ENV=development
+    volumes:
+      - ./services/pnl_service/logs:/app/logs
+    depends_on:
+      - pricing_service
+
+  risk_service:
+    build: ./services/risk_service
+    ports:
+      - "5003:5003"
+    environment:
+      - FLASK_ENV=development
+    volumes:
+      - ./services/risk_service/logs:/app/logs
+    depends_on:
+      - pnl_service

@@ -1,0 +1,6 @@
+{"timestamp": "2025-12-15T10:00:04Z", "level": "INFO", "service": "pnl_service", "trace_id": "123e4567-e89b-12d3-a456-426614174000", "message": "Received P&L computation request", "extra": {"endpoint": "/pnl", "method": "POST"}}
+{"timestamp": "2025-12-15T10:00:05Z", "level": "INFO", "service": "pnl_service", "trace_id": "123e4567-e89b-12d3-a456-426614174000", "message": "P&L computed successfully", "extra": {"trade_id": "12345", "pnl_value": 85.0}}
+{"timestamp": "2025-12-15T10:01:02Z", "level": "INFO", "service": "pnl_service", "trace_id": "123e4567-e89b-12d3-a456-426614174003", "message": "Received P&L computation request", "extra": {"endpoint": "/pnl", "method": "POST"}}
+{"timestamp": "2025-12-15T10:01:03Z", "level": "ERROR", "service": "pnl_service", "trace_id": "123e4567-e89b-12d3-a456-426614174003", "message": "P&L computation failed due to data inconsistency", "extra": {"trade_id": "99999"}}
+{"timestamp": "2025-12-15T10:01:10Z", "level": "INFO", "service": "pnl_service", "trace_id": "123e4567-e89b-12d3-a456-426614174004", "message": "Received P&L computation request", "extra": {"endpoint": "/pnl", "method": "POST"}}
+{"timestamp": "2025-12-15T10:01:11Z", "level": "INFO", "service": "pnl_service", "trace_id": "123e4567-e89b-12d3-a456-426614174004", "message": "P&L computed successfully", "extra": {"trade_id": "11111", "pnl_value": -150.0}}
